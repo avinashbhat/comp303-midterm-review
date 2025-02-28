@@ -17,22 +17,14 @@ class Library(metaclass=Singleton):
     
     # flyweight
     def add_song(self, song_name: str, artist_name: str, 
-                 genre: Optional[str] = None, 
-                 release_year: Optional[int] = None, 
-                 duration: Optional[int] = None) -> None:
-        key = f"{song_name}-{artist_name}"
-        
+                 genre: Optional[str] = None) -> None:
+        key = f"{song_name}--{artist_name}"
         song = self._song_repository.get(key)
         
         if song is None:
-            song = Song(song_name, artist_name)
-            
+            song = Song(song_name, artist_name)            
             if genre:
                 song.set_genre(genre)
-            if release_year:
-                song.set_release_year(release_year)
-            if duration:
-                song.set_duration(duration)
                 
             self._song_repository[key] = song
             print(f"Created new song: {song_name}")
@@ -40,10 +32,6 @@ class Library(metaclass=Singleton):
             print(f"Reused existing song: {song_name}")
             if genre:
                 song.set_genre(genre)
-            if release_year:
-                song.set_release_year(release_year)
-            if duration:
-                song.set_duration(duration)
         
         self.songs.append(song)
     
