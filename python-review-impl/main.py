@@ -4,10 +4,10 @@ from podcast import Podcast
 def main():
     library = Library()
     
-    library.add_song("Bohemian Rhapsody", "Queen", "Rock", 1975, 355)
-    library.add_song("Yesterday", "The Beatles", "Pop", 1965, 125)
+    library.add_song("Bohemian Rhapsody", "Queen", "Rock")
+    library.add_song("Yesterday", "The Beatles", "Pop")
     library.add_song("Bohemian Rhapsody", "Queen")  # reuse the existing song
-    library.add_song("Imagine", "John Lennon", "Pop", 1971, 183)
+    library.add_song("Imagine", "John Lennon", "Pop")
     
     print("\nPlaying all songs in library:")
     library.play_all_songs()

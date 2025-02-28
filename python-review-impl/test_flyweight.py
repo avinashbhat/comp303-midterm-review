@@ -15,8 +15,8 @@ class TestSongFactory(unittest.TestCase):
         self.assertEqual(1, len(SongFactory.playlist))
     
     def test_song_factory_size_increase(self):
-        s1 = Song("Kerala", "Bonobo", "Blues")
-        s2 = Song("Navajo", "Masego", "Jazz/House")
+        s1 = Song("Kerala", "Bonobo")
+        s2 = Song("Navajo", "Masego")
         Library().add_song(s1)
         Library().add_song(s2)
         self.assertEqual(2, len(SongFactory.playlist))
